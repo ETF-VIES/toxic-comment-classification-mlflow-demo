@@ -7,25 +7,9 @@ import mlflow
 import mlflow.sklearn
 import joblib
 
-
-
-# from sklearn.ensemble import RandomForestClassifier
-# model = Pipeline([
-#     ('vectorizer', CountVectorizer()),
-#     ('classifier', RandomForestClassifier(n_estimators=100, random_state=42))
-# ])
-
-# from sklearn.linear_model import LogisticRegression
-# model = Pipeline([
-#     ('vectorizer', CountVectorizer()),
-#     ('classifier', LogisticRegression(max_iter=1000))
-# ])
-
-
 # Load data
 df = pd.read_csv("train.csv")
-# X = df["comment"]
-# y = df["label"]
+
 # Prepare data for binary classification: label as 1 if any toxicity column is 1, else 0
 toxicity_cols = ["toxic", "severe_toxic", "obscene", "threat", "insult", "identity_hate"]
 df["label"] = (df[toxicity_cols].sum(axis=1) > 0).astype(int)
