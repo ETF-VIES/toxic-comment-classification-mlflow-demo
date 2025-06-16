@@ -1,4 +1,4 @@
-id,comment,label
+"id","comment_text","toxic","severe_toxic","obscene","threat","insult","identity_hate"
 64,You're an idiot.,1
 56,This is garbage.,1
 23,Well written!,0
