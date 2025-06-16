@@ -8,12 +8,12 @@ import mlflow.sklearn
 import joblib
 
 # Load data
-df = pd.read_csv("train.csv")
+df = pd.read_csv("data/comments_100000.csv")
 
 # Prepare data for binary classification: label as 1 if any toxicity column is 1, else 0
 toxicity_cols = ["toxic", "severe_toxic", "obscene", "threat", "insult", "identity_hate"]
 df["label"] = (df[toxicity_cols].sum(axis=1) > 0).astype(int)
-X = df["comment_text"]
+X = df["comment"]
 y = df["label"]
 # Split
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.25, random_state=42, stratify=y)

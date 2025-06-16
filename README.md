@@ -7,16 +7,17 @@ python3 -m venv venv
 source venv/bin/activate
 
 pip install --upgrade pip
-pip install pandas scikit-learn mlflow fastapi uvicorn requests
+pip install -r requirements.txt
+
+mlflow ui
 
 export MLFLOW_TRACKING_URI=http://localhost:5000
 
 python3 train.py
 
-mlflow ui
+vim serve.py
 
 uvicorn serve:app --reload
-
 
 curl -X POST http://localhost:8000/predict \
   -H "Content-Type: application/json" \
