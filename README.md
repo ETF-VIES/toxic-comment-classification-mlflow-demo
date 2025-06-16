@@ -19,8 +19,11 @@ mlflow ui
 ***comments_10 -> comments_100 -> comments_500000***
 
 ```sh
-source venv/bin/activate
 vim train.py
+```
+
+```sh
+source venv/bin/activate
 export MLFLOW_TRACKING_URI=http://localhost:5000
 python3 train.py
 ```
@@ -29,6 +32,10 @@ python3 train.py
 
 ```sh
 vim serve.py
+```
+
+```sh
+
 source venv/bin/activate
 uvicorn serve:app --reload
 ```
@@ -40,3 +47,8 @@ curl -X POST http://localhost:8000/predict \
   -H "Content-Type: application/json" \
   -d '{"text": "I like it"}'
 ```
+
+### Demo
+
+![runs](data/runs.png)
+![Model](data/model.png)
